@@ -44,7 +44,7 @@ const AvailabilitySection: React.FC = () => {
       bedType: 'single beds',
       size: 1200,
       price: 282,
-      roomsLeft: 4,
+      roomsLeft: 10,
       amenities: ['Room', 'Air condition', 'TV', 'Bathroom', 'WIFI']
     },
     {
@@ -64,7 +64,7 @@ const AvailabilitySection: React.FC = () => {
       bedType: 'single beds',
       size: 1200,
       price: 282,
-      roomsLeft: 4,
+      roomsLeft: 7,
       amenities: ['Room', 'Air condition', 'TV', 'Bathroom', 'WIFI']
     }
   ];

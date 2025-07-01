@@ -111,8 +111,8 @@ const HotelBanner: React.FC = () => {
             <button className="pb-2 text-gray-600 hover:text-gray-900">
               Reviews
             </button>
-            <Button variant="outline" size="sm" className="ml-auto">
-              <MessageCircle className="h-4 w-4 mr-2" />
+            <Button variant="outline" size="lg" className="ml-auto bg-[#007DD0]">
+              <MessageCircle className="h-4 w-4 mr-1" />
               Message
             </Button>
           </div>
