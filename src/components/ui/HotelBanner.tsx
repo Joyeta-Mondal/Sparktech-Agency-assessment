@@ -17,7 +17,7 @@ import {
 
 const HotelBanner: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 bg-white">
+    <div className=" mx-auto sm:px-6 lg:px-[100px] py-6 bg-white">
       {/* Header Section */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
         <div className="flex-1">
@@ -30,13 +30,13 @@ const HotelBanner: React.FC = () => {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <Button variant="ghost" size="icon" className="rounded-full bg-blue-50 hover:bg-blue-100">
-            <Bookmark className="h-5 w-5 text-[#007DD0]" />
+          <Button variant="ghost" size="lg" className="rounded-full bg-blue-50 hover:bg-blue-100">
+            <Bookmark className="h-7 w-7 text-[#007DD0]" />
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full bg-blue-50 hover:bg-blue-100">
+          <Button variant="ghost" size="lg" className="rounded-full bg-blue-50 hover:bg-blue-100">
             <Users className="h-5 w-5 text-[#007DD0]" />
           </Button>
-          <Button className="bg-[#007DD0] hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm">
+          <Button className="bg-[#007DD0] hover:bg-blue-700 text-white px-6 py-2 rounded-full text-md">
             Reserve <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

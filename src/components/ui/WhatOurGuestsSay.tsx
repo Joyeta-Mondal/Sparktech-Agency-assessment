@@ -81,7 +81,7 @@ const WhatOurGuestsSay: React.FC = () => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto p-4 bg-white">
+    <div className="lg:px-[100px] mx-auto p-4 bg-white">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h2 className="text-2xl font-bold text-gray-900">What Our Guests Say</h2>

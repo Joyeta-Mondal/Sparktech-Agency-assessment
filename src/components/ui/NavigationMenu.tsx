@@ -22,7 +22,7 @@ export default function NavigationMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full border-b bg-[#E9F6FF] py-4 px-4 sm:px-6 lg:px-[88px]">
+    <header className="w-full border-b bg-[#E9F6FF] py-4 px-4 sm:px-6 lg:px-[100px]">
       <div className="flex justify-between items-center">
         {/* Left: Logo + Desktop Nav */}
         <div className="flex items-center gap-6">
