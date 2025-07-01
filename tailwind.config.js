@@ -18,6 +18,11 @@ const config = {
       },
     },
     extend: {
+        fontFamily: {
+        sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        // Or if you want to keep it as a separate family:
+        'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -37,7 +42,7 @@ const config = {
         primary: "#FFFFFF",
         navColor : "#E9F6FF", 
         btnColor : "#007DD0",
-        footerColor: "#00548C",
+        footerColor: "#00548C"
       },
       fontSize: {
         normal: "1.125rem"

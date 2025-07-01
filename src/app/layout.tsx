@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { DM_Sans } from 'next/font/google'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // Add the weights you need
+  variable: '--font-dm-sans',
+  display: 'swap',
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={dmSans.variable}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={dmSans.className}
       >
         {children}
       </body>
