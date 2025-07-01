@@ -18,11 +18,12 @@ import {
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[#00548C] text-white">
-      <div className="container mx-auto mt-8 px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
+      <div className="container mx-auto px-4 py-10">
+        {/* Grid Sections */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Brand + Social */}
+          <div className="lg:col-span-2 text-center sm:text-left">
+            <div className="flex justify-center sm:justify-start items-center gap-2 mb-4">
               <Image
                 src="/assets/footerLogo.png"
                 alt="DAYF Logo"
@@ -31,114 +32,66 @@ const Footer: React.FC = () => {
                 className="rounded"
               />
             </div>
-            <p className="text-blue-100 text-sm leading-relaxed mb-6 max-w-md">
+            <p className="text-blue-100 text-sm leading-relaxed mb-6 max-w-md mx-auto sm:mx-0">
               DAYF makes booking your next stay easy, affordable, and stress-free. 
               With thousands of hotels worldwide, exclusive deals, and secure payment 
               options, we're here to help you find the perfect place to stay every time.
             </p>
 
-            {/* Social Links */}
-            <div className="flex gap-3">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-2 hover:bg-[#004270] text-white"
-                asChild
-              >
-                <Link href="#" aria-label="Twitter">
-                  <Twitter className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-2 hover:bg-[#004270] text-white"
-                asChild
-              >
-                <Link href="#" aria-label="Facebook">
-                  <Facebook className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-2 hover:bg-[#004270] text-white"
-                asChild
-              >
-                <Link href="#" aria-label="Instagram">
-                  <Instagram className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-2 hover:bg-[#004270] text-white"
-                asChild
-              >
-                <Link href="#" aria-label="GitHub">
-                  <Github className="w-4 h-4" />
-                </Link>
-              </Button>
+            {/* Social Icons */}
+            <div className="flex justify-center sm:justify-start gap-3">
+              {[Twitter, Facebook, Instagram, Github].map((Icon, i) => (
+                <Button
+                  key={i}
+                  variant="ghost"
+                  size="sm"
+                  className="p-2 hover:bg-[#004270] text-white"
+                  asChild
+                >
+                  <Link href="#" aria-label={Icon.name}>
+                    <Icon className="w-4 h-4" />
+                  </Link>
+                </Button>
+              ))}
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div>
+          {/* Nav Links */}
+          <div className="text-center sm:text-left">
             <nav className="space-y-3">
-              <Link
-                href="/"
-                className="block text-white hover:text-blue-200 transition-colors text-sm"
-              >
-                Home
-              </Link>
-              <Link
-                href="/hotels"
-                className="block text-white hover:text-blue-200 transition-colors text-sm"
-              >
-                Hotels
-              </Link>
-              <Link
-                href="/deals"
-                className="block text-white hover:text-blue-200 transition-colors text-sm"
-              >
-                Deals
-              </Link>
-              <Link
-                href="/about"
-                className="block text-white hover:text-blue-200 transition-colors text-sm"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/contact"
-                className="block text-white hover:text-blue-200 transition-colors text-sm"
-              >
-                Contact Us
-              </Link>
+              {['Home', 'Hotels', 'Deals', 'About Us', 'Contact Us'].map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item.toLowerCase().replace(/\s/g, '')}`}
+                  className="block text-white hover:text-blue-200 transition-colors text-sm"
+                >
+                  {item}
+                </Link>
+              ))}
             </nav>
           </div>
 
-          {/* Contact & App Section */}
-          <div className="space-y-4">
+          {/* Contact + App */}
+          <div className="space-y-6 text-center sm:text-left">
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex justify-center sm:justify-start items-center gap-2 text-sm">
                 <Phone className="w-4 h-4 text-blue-200" />
                 <span>+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex justify-center sm:justify-start items-center gap-2 text-sm">
                 <Mail className="w-4 h-4 text-blue-200" />
                 <span>support@yourapphome.com</span>
               </div>
             </div>
 
-            {/* Download App */}
+            {/* App Download */}
             <div>
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex justify-center sm:justify-start items-center gap-2 mb-3">
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">Download Our App</span>
               </div>
-              <div className="flex gap-2">
+              <div className="flex justify-center sm:justify-start gap-2">
                 <Button
                   variant="secondary"
                   size="sm"
@@ -166,15 +119,15 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-blue-500 mt-8 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-blue-200">
+        {/* Bottom Footer */}
+        <div className="border-t border-blue-500 mt-10 pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-blue-200">
               <MapPin className="w-4 h-4" />
               <span>123 Travel St, Suite 100, City, Country</span>
             </div>
             <div className="text-sm text-blue-200">
-              © 2023. All Rights Reserved
+              © {new Date().getFullYear()}. All Rights Reserved
             </div>
           </div>
         </div>
