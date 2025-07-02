@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 SparkTech Assessment
+
+[Live Demo](https://sparktech-assessment.vercel.app/)
+
+A modern Next.js TypeScript application powered by ShadCN UI and Tailwind CSS, deployed on Vercel.
+
+---
+
+## Table of Contents
+
+- [About](#about)  
+- [Tech Stack](#tech-stack)  
+- [Features](#features)  
+- [Getting Started](#getting-started)  
+  - [Prerequisites](#prerequisites)  
+  - [Installation](#installation)  
+  - [Development](#development)  
+  - [Production Build](#production-build)  
+  - [Deployment](#deployment)  
+- [Project Structure](#project-structure)  
+- [Contributing](#contributing)  
+- [License](#license)  
+
+---
+
+## About
+
+This project is the assessment deliverable for SparkTech. It showcases a sleek, responsive interface built with **Next.js**, utilizing **TypeScript** for type safety, **ShadCN UI** for component architecture, and **Tailwind CSS** for styling. The application is live at the link above and deployed on Vercel.
+
+---
+
+## Tech Stack
+
+- **Frontend:** Next.js (app router with React 18+)
+- **Language:** TypeScript  
+- **UI Library:** ShadCN UI  
+- **Styling:** Tailwind CSS  
+- **Deployment:** Vercel  
+
+---
+
+## Features
+
+- 🧩 Modular components via ShadCN UI  
+- 🎨 Utility-first styling with Tailwind  
+- ⚡ Fast refresh and optimized builds  
+- 🚀 Instant deployment through Vercel  
+- 🔒 Type-safe codebase with TypeScript  
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js v16+ (or latest LTS)  
+- npm or Yarn  
+
+### Installation
 
 ```bash
-npm run dev
+git clone https://github.com/yourusername/sparktech-assessment.git
+cd sparktech-assessment
+npm install
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+yarn
