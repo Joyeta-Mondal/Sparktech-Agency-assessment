@@ -12,156 +12,218 @@ import {
   UtensilsCrossed,
   Waves,
   Snowflake,
-  Dumbbell
+  Dumbbell,
+  X
 } from 'lucide-react';
 
 const HotelBanner: React.FC = () => {
   return (
-    <div className=" mx-auto sm:px-6 lg:px-[100px] py-6 bg-white">
-      {/* Header Section */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
-        <div className="flex-1">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 mb-2">
-            El Aurassi Hotel
-          </h1>
-          <p className="text-gray-600 text-base lg:text-lg max-w-md">
-            Spacious, modern rooms with panoramic views of the Mediterranean Sea.
-          </p>
+    <div className="bg-white">
+      <div className="mx-auto px-4 sm:px-6 lg:px-[100px] py-8">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6">
+          <div className="flex-1">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 leading-tight">
+              El Aurassi Hotel
+            </h1>
+            <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
+              Spacious, modern rooms with panoramic views of the Mediterranean Sea.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className="h-12 w-12 rounded-full bg-blue-50 hover:bg-blue-100 p-0"
+            >
+              <Bookmark className="h-6 w-6 text-[#007DD0]" />
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className="h-12 w-12 rounded-full bg-blue-50 hover:bg-blue-100 p-0"
+            >
+              <Users className="h-5 w-5 text-[#007DD0]" />
+            </Button>
+            <Button className="bg-[#007DD0] hover:bg-blue-700 text-white px-8 py-3 rounded-full text-base font-medium h-12">
+              Reserve <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <Button variant="ghost" size="lg" className="rounded-full bg-blue-50 hover:bg-blue-100">
-            <Bookmark className="h-7 w-7 text-[#007DD0]" />
-          </Button>
-          <Button variant="ghost" size="lg" className="rounded-full bg-blue-50 hover:bg-blue-100">
-            <Users className="h-5 w-5 text-[#007DD0]" />
-          </Button>
-          <Button className="bg-[#007DD0] hover:bg-blue-700 text-white px-6 py-2 rounded-full text-md">
-            Reserve <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Image Gallery Grid */}
-      <div className="mb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-6 gap-2">
-          {/* Main large image */}
-          <div className="sm:col-span-4 sm:row-span-2 rounded-lg overflow-hidden">
-            <Image
-              src="/assets/banner1.png"
-              alt="Hotel room with panoramic view"
-              width={800}
-              height={600}
-              className="object-cover w-full h-full rounded-lg"
-              priority
-            />
-          </div>
-
-          {/* Right-side top and bottom images */}
-          <div className="sm:col-span-2 sm:row-span-1 rounded-lg overflow-hidden">
-            <Image
-              src="/assets/banner2.png"
-              alt="Hotel exterior"
-              width={400}
-              height={295}
-              className="object-cover w-full h-full rounded-lg"
-            />
-          </div>
-
-          <div className="sm:col-span-2 sm:row-span-1 rounded-lg overflow-hidden">
-            <Image
-              src="/assets/banner3.png"
-              alt="Pool area"
-              width={400}
-              height={295}
-              className="object-cover w-full h-full rounded-lg"
-            />
-          </div>
-
-          {/* Third row images */}
-          {['banner4', 'banner5', 'banner6', 'banner7', 'banner8', 'banner9'].map((img, i) => (
-            <div key={img} className="rounded-lg overflow-hidden sm:col-span-1">
+        {/* Image Gallery Grid */}
+        <div className="mb-8">
+          <div className="grid grid-cols-12 gap-2 h-[400px] lg:h-[500px]">
+            {/* Main large image - takes up 8 columns and 2 rows */}
+            <div className="col-span-12 lg:col-span-8 row-span-2 rounded-2xl overflow-hidden">
               <Image
-                src={`/assets/${img}.png`}
-                alt={`Hotel image ${i + 4}`}
-                width={200}
-                height={200}
-                className="object-cover w-full h-full rounded-lg"
+                src="/assets/banner1.png"
+                alt="Hotel room with panoramic view"
+                width={800}
+                height={500}
+                className="object-cover w-full h-full"
+                priority
               />
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Navigation Tabs and Details */}
-      <div className="flex flex-col lg:flex-row gap-6">
-        {/* Left Side */}
-        <div className="flex-1">
-          {/* Tabs */}
-          <div className="flex flex-wrap gap-4 items-center mb-6 border-b pb-2">
-            <button className="pb-2 text-[#007DD0] border-b-2 border-[#007DD0] font-medium">
-              Over View
-            </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-900">
-              Features
-            </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-900">
-              Reviews
-            </button>
-            <div className="ml-auto">
-              <Button variant="outline" size="sm" className="bg-[#007DD0] text-white">
-                <MessageCircle className="h-4 w-4 mr-1" />
+            {/* Top right image */}
+            <div className="hidden lg:block col-span-4 rounded-2xl overflow-hidden">
+              <Image
+                src="/assets/banner2.png"
+                alt="Hotel exterior view"
+                width={400}
+                height={245}
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            {/* Bottom right image */}
+            <div className="hidden lg:block col-span-4 rounded-2xl overflow-hidden">
+              <Image
+                src="/assets/banner3.png"
+                alt="Pool area"
+                width={400}
+                height={245}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+
+          {/* Bottom row of smaller images */}
+          <div className="hidden lg:grid grid-cols-6 gap-2 mt-2">
+            {['banner4', 'banner5', 'banner6', 'banner7', 'banner8', 'banner9'].map((img, i) => (
+              <div key={img} className="rounded-2xl overflow-hidden aspect-square">
+                <Image
+                  src={`/assets/${img}.png`}
+                  alt={`Hotel detail ${i + 1}`}
+                  width={180}
+                  height={180}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile additional images */}
+          <div className="lg:hidden grid grid-cols-2 gap-2 mt-2">
+            <div className="rounded-2xl overflow-hidden aspect-video">
+              <Image
+                src="/assets/banner2.png"
+                alt="Hotel exterior view"
+                width={400}
+                height={300}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden aspect-video">
+              <Image
+                src="/assets/banner3.png"
+                alt="Pool area"
+                width={400}
+                height={300}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="flex flex-col xl:flex-row gap-8">
+          {/* Left Content */}
+          <div className="flex-1">
+            {/* Navigation Tabs */}
+            <div className="flex flex-wrap items-center justify-between mb-8 border-b border-gray-200">
+              <div className="flex gap-8">
+                <button className="pb-4 text-[#007DD0] border-b-2 border-[#007DD0] font-medium text-base">
+                  Over View
+                </button>
+                <button className="pb-4 text-gray-600 hover:text-gray-900 font-medium text-base">
+                  Features
+                </button>
+                <button className="pb-4 text-gray-600 hover:text-gray-900 font-medium text-base">
+                  Reviews
+                </button>
+              </div>
+              <Button 
+                className="bg-[#007DD0] hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium"
+              >
+                <MessageCircle className="h-4 w-4 mr-2" />
                 Message
               </Button>
             </div>
-          </div>
 
-          {/* Property Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Property Type</h3>
-              <Badge variant="secondary" className="bg-gray-100">Resorts</Badge>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Area</h3>
-              <Badge variant="secondary" className="bg-gray-100">12000 sqft</Badge>
-            </div>
-          </div>
-
-          {/* Features */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Features</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {[
-                { icon: Wifi, label: 'Wifi' },
-                { icon: UtensilsCrossed, label: 'Dining' },
-                { icon: Waves, label: 'Swimming Pool' },
-                { icon: Snowflake, label: 'Air Conditioning' },
-                { icon: Dumbbell, label: 'Gym' },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 text-gray-700">
-                  <Icon className="h-5 w-5" />
-                  <span>{label}</span>
+            {/* Property Details */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3 text-base">Property Type</h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gray-800 rounded-full"></div>
+                  <span className="text-gray-700 font-medium">Resorts</span>
                 </div>
-              ))}
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3 text-base">Property Type</h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gray-800 rounded-full"></div>
+                  <span className="text-gray-700 font-medium">12000 sqft</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Features */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-6 text-base">Features</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <Wifi className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Wifi</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <X className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Dining</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <Waves className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Swimming Pool</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <Snowflake className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Air Conditioning</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <Dumbbell className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Gym</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right Side - Booking Card */}
-        <div className="w-full lg:w-80">
-          <Card className="p-6 w-full">
-            <CardContent className="p-0">
-              <div className="mb-4">
-                <p className="text-sm text-gray-600 mb-1">1 week, 2 adults, 1 child</p>
-                <p className="text-2xl font-bold text-gray-900">USD $6,112</p>
-              </div>
+          {/* Right Side - Booking Card */}
+          <div className="w-full xl:w-80 xl:shrink-0">
+            <Card className="border border-gray-200 rounded-2xl overflow-hidden">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <p className="text-sm text-gray-600 mb-2">1 week, 2 adults, 1 child</p>
+                  <p className="text-3xl font-bold text-gray-900">USD $6,112</p>
+                </div>
 
-              <Button className="w-full bg-[#007DD0] hover:bg-blue-700 text-white py-3 rounded-lg">
-                Reserve
-              </Button>
-            </CardContent>
-          </Card>
+                <Button className="w-full bg-[#007DD0] hover:bg-blue-700 text-white py-4 rounded-2xl text-base font-medium">
+                  Reserve
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

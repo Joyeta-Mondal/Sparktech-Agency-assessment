@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -16,138 +17,269 @@ import {
   ExternalLink,
   Menu,
   X,
+  Heart,
+  RotateCcw,
+  User,
 } from "lucide-react";
 
 export default function NavigationMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full border-b bg-[#E9F6FF] py-4 px-4 sm:px-6 lg:px-[100px]">
-      <div className="flex justify-between items-center">
-        {/* Left: Logo + Desktop Nav */}
-        <div className="flex items-center gap-6">
-          <Link href="/" className="shrink-0">
-            <Image
-              src="/assets/navLogo.png"
-              alt="DAYF Booking Logo"
-              width={90}
-              height={29}
-              className="h-10 w-auto"
-              priority
-            />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-[18px] text-sm font-medium text-gray-700">
-            <Link href="#" className="hover:text-blue-600">Home</Link>
-            <Link href="#" className="hover:text-blue-600">Hotels</Link>
-            <Link href="#" className="hover:text-blue-600">House</Link>
-            <Link href="#" className="hover:text-blue-600">About Us</Link>
-            <Link href="#" className="hover:text-blue-600">Contact Us</Link>
-          </nav>
-        </div>
-
-        {/* Right: Dropdowns & Buttons */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Currency Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-                <span className="text-black text-sm">€</span>
-                <ChevronDown className="w-4 h-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>EUR</DropdownMenuItem>
-              <DropdownMenuItem>USD</DropdownMenuItem>
-              <DropdownMenuItem>GBP</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Language Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-                <Image
-                  src="/assets/spain-flag.png"
-                  alt="Flag"
-                  width={20}
-                  height={20}
-                  className="rounded-full"
-                />
-                <ChevronDown className="w-4 h-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Spanish</DropdownMenuItem>
-              <DropdownMenuItem>English</DropdownMenuItem>
-              <DropdownMenuItem>French</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-blue-600 border-blue-600 hover:bg-blue-50"
-          >
-            List your property
-            <ExternalLink className="w-4 h-4 ml-1" />
-          </Button>
-
-          <Button variant="ghost" size="icon" className="p-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+    <header className="w-full bg-[#E9F6FF] border-b border-gray-200">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-[100px]">
+        <div className="flex justify-between items-center h-16">
+          {/* Left: Logo + Desktop Nav */}
+          <div className="flex items-center">
+            <Link href="/" className="shrink-0 mr-8">
+              <Image
+                src="/assets/navLogo.png"
+                alt="DAYF Booking Logo"
+                width={90}
+                height={29}
+                className="h-7 w-auto"
+                priority
               />
-            </svg>
-          </Button>
+            </Link>
 
-          <Avatar className="w-8 h-8">
-            <AvatarFallback className="bg-blue-600 text-white text-sm">
-              S
-            </AvatarFallback>
-          </Avatar>
-          <span className="text-sm font-medium text-gray-700">Sunan</span>
-        </div>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <Link href="/" className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors">
+                Home
+              </Link>
+              <Link href="/hotels" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                Hotels
+              </Link>
+              <Link href="/house" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                House
+              </Link>
+              <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                About Us
+              </Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                Contact Us
+              </Link>
+            </nav>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="block md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
+          {/* Right: Controls + User */}
+          <div className="hidden lg:flex items-center space-x-3">
+            {/* Currency Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-9 px-3 flex items-center gap-1.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                >
+                  <span className="text-lg font-medium">€</span>
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-20">
+                <DropdownMenuItem className="justify-center">€ EUR</DropdownMenuItem>
+                <DropdownMenuItem className="justify-center">$ USD</DropdownMenuItem>
+                <DropdownMenuItem className="justify-center">£ GBP</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden mt-4 space-y-4 text-sm text-gray-700">
-          <nav className="flex flex-col gap-2">
-            <Link href="#" className="hover:text-blue-600">Home</Link>
-            <Link href="#" className="hover:text-blue-600">Hotels</Link>
-            <Link href="#" className="hover:text-blue-600">House</Link>
-            <Link href="#" className="hover:text-blue-600">About Us</Link>
-            <Link href="#" className="hover:text-blue-600">Contact Us</Link>
-          </nav>
+            {/* Language Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-9 px-3 flex items-center gap-1.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                >
+                  <Image
+                    src="/assets/spain-flag.png"
+                    alt="Spanish"
+                    width={20}
+                    height={15}
+                    className="rounded-sm"
+                  />
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-32">
+                <DropdownMenuItem>
+                  <Image src="/assets/spain-flag.png" alt="" width={16} height={12} className="mr-2 rounded-sm" />
+                  Spanish
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Image src="/assets/uk-flag.png" alt="" width={16} height={12} className="mr-2 rounded-sm" />
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Image src="/assets/france-flag.png" alt="" width={16} height={12} className="mr-2 rounded-sm" />
+                  French
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-          <div className="flex flex-col gap-2 pt-4 border-t">
-            <Button variant="outline" className="text-blue-600 border-blue-600">
+            {/* List Property Button */}
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 px-4 text-blue-600 border-blue-600 hover:bg-blue-50 hover:border-blue-700 rounded-md font-medium"
+            >
               List your property
+              <ExternalLink className="w-4 h-4 ml-1.5" />
             </Button>
-            <div className="flex gap-2 items-center text-sm">
-              <span>Currency:</span>
-              <span className="font-medium">€</span>
-            </div>
-            <div className="flex gap-2 items-center text-sm">
-              <span>Language:</span>
-              <span className="font-medium">Spanish</span>
+
+            {/* Heart Icon */}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="h-9 w-9 p-0 text-gray-600 hover:text-red-500 hover:bg-red-50 rounded-md"
+            >
+              <Heart className="w-5 h-5" />
+            </Button>
+
+            {/* Refresh Icon */}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="h-9 w-9 p-0 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+            >
+              <RotateCcw className="w-5 h-5" />
+            </Button>
+
+            {/* User Section */}
+            <div className="flex items-center gap-2 ml-2">
+              <Avatar className="w-8 h-8">
+                <AvatarFallback className="bg-blue-600 text-white text-sm font-medium">
+                  S
+                </AvatarFallback>
+              </Avatar>
+              <span className="text-sm font-medium text-gray-900">Sunan</span>
             </div>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-      )}
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="lg:hidden border-t border-gray-200 bg-white">
+            <div className="py-4 space-y-1">
+              {/* Navigation Links */}
+              <nav className="space-y-1">
+                <Link 
+                  href="/" 
+                  className="block px-4 py-2 text-sm font-medium text-gray-900 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/hotels" 
+                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Hotels
+                </Link>
+                <Link 
+                  href="/house" 
+                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  House
+                </Link>
+                <Link 
+                  href="/about" 
+                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </nav>
+
+              {/* Mobile Controls */}
+              <div className="pt-4 border-t border-gray-200 space-y-3">
+                {/* User Info */}
+                <div className="flex items-center gap-3 px-4">
+                  <Avatar className="w-8 h-8">
+                    <AvatarFallback className="bg-blue-600 text-white text-sm font-medium">
+                      S
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="text-sm font-medium text-gray-900">Sunan</span>
+                </div>
+
+                {/* List Property Button */}
+                <div className="px-4">
+                  <Button
+                    variant="outline"
+                    className="w-full text-blue-600 border-blue-600 hover:bg-blue-50"
+                  >
+                    List your property
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+
+                {/* Currency & Language */}
+                <div className="px-4 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Currency:</span>
+                    <div className="flex items-center gap-1">
+                      <span className="text-lg font-medium">€</span>
+                      <span className="text-sm text-gray-900">EUR</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Language:</span>
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src="/assets/spain-flag.png"
+                        alt="Spanish"
+                        width={16}
+                        height={12}
+                        className="rounded-sm"
+                      />
+                      <span className="text-sm text-gray-900">Spanish</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 px-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1 text-gray-600 border-gray-300"
+                  >
+                    <Heart className="w-4 h-4 mr-2" />
+                    Favorites
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1 text-gray-600 border-gray-300"
+                  >
+                    <RotateCcw className="w-4 h-4 mr-2" />
+                    Recent
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
