@@ -184,7 +184,7 @@ const YouMayAlsoLike: React.FC = () => {
       key={property.id}
       className="w-[326px] h-[455px] sm:px-2 p-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0"
     >
-      <CardContent className="p-0 pb-3  flex flex-col h-full">
+      <CardContent className="p-0 pb-3 flex flex-col h-full">
         <div className="relative w-full h-[243px] overflow-hidden rounded-t-lg">
           <Image
             src="/assets/card.png"
