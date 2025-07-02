@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,13 +20,13 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#00548C] text-white">
       {/* Main Footer Content */}
-      <div className="py-[60px] md:py-[60px]">
+      <div className="py-[60px] md:py-[60px] py-8">
         <div className="mx-auto px-4 md:px-8 lg:px-[160px]">
           {/* Two Main Sections with responsive layout */}
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-[70px]">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-[80px]">
             
             {/* Left Section: Brand + Description + Social */}
-            <div className="flex-1">
+            <div className="lg:flex-1">
               <div className="mb-6">
                 <Image
                   src="/assets/footerLogo.png"
@@ -38,7 +39,7 @@ const Footer: React.FC = () => {
               <p className="text-white text-base md:text-lg leading-relaxed mb-6 max-w-xl">
                 DAYF makes booking your next stay easy, affordable, and stress-free. 
                 With thousands of hotels worldwide, exclusive deals, and secure payment 
-                options, we are here to help you find the perfect place to stay every time.
+                options, we're here to help you find the perfect place to stay every time.
               </p>
 
               {/* Social Icons */}
@@ -64,18 +65,21 @@ const Footer: React.FC = () => {
                 <span>123 Travel St, Suite 100, City, Country</span>
               </div>
             </div>
+{/* divider */}
+            <div className="hidden lg:block w-px bg-white opacity-30"></div>
 
             {/* Right Section: Navigation + Contact + App Download */}
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-16 lg:mt-14">
+            <div className="lg:flex-1">
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-[78px] lg:mt-14">
               
               {/* Navigation Links */}
               <div>
-                <nav className="space-y-3 md:space-y-4">
+                <nav className="space-y-3 md:space-y-4 ">
                   {['Home', 'Hotels', 'Deals', 'About Us', 'Contact Us'].map((item) => (
                     <Link
                       key={item}
                       href={`/${item.toLowerCase().replace(/\s/g, '')}`}
-                      className="block text-white hover:text-blue-200 transition-colors text-sm md:text-md"
+                      className="block text-white hover:text-blue-200 transition-colors text-md md:text-md"
                     >
                       {item}
                     </Link>
@@ -87,11 +91,11 @@ const Footer: React.FC = () => {
               <div className="space-y-6">
                 {/* Contact Info */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm md:text-md">
+                  <div className="flex items-center gap-2 text-[15px] md:text-md">
                     <Phone className="w-4 h-4 flex-shrink-0" />
                     <span>+1 (555) 123-4567</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm md:text-md">
+                  <div className="flex items-center gap-2 text-[15px] md:text-md">
                     <Mail className="w-4 h-4 flex-shrink-0" />
                     <span>support@yourapphome.com</span>
                   </div>
@@ -101,7 +105,7 @@ const Footer: React.FC = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Download className="w-4 h-4" />
-                    <span className="text-sm md:text-md font-medium">Download Our App</span>
+                    <span className="text-[15px] md:text-md font-medium">Download Our App</span>
                   </div>
                   <div className="flex gap-2">
                     <Button
@@ -112,7 +116,7 @@ const Footer: React.FC = () => {
                     >
                       <Link href="#" className="flex items-center gap-1">
                         <Apple className="w-3 h-3" />
-                        <span className="text-xs md:text-md">iOS</span>
+                        <span className="text-[15px] md:text-md">iOS</span>
                       </Link>
                     </Button>
                     <Button
@@ -123,16 +127,17 @@ const Footer: React.FC = () => {
                     >
                       <Link href="#" className="flex items-center gap-1">
                         <Smartphone className="w-3 h-3" />
-                        <span className="text-xs md:text-md">Android</span>
+                        <span className="text-[15px] md:text-md">Android</span>
                       </Link>
                     </Button>
                   </div>
                 </div>
-                
+                </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
 
       {/* Bottom copyright */}
