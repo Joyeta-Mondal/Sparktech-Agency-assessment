@@ -35,6 +35,7 @@ interface Property {
 const YouMayAlsoLike: React.FC = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
+  const [isMobile, setIsMobile] = useState(false);
 
   const properties: Property[] = [
     {
@@ -162,6 +163,16 @@ const YouMayAlsoLike: React.FC = () => {
     },
   ];
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const renderStars = (rating: number) => (
     <div className="flex items-center gap-1">
       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -257,8 +268,13 @@ const YouMayAlsoLike: React.FC = () => {
   const bottomRow = properties.filter((_, i) => i % 2 === 1);
 
   const scrollForward = () => {
-    const maxScroll = Math.max(topRow.length, bottomRow.length) - 3;
-    setStartIndex((prev) => (prev < maxScroll ? prev + 1 : prev));
+    if (isMobile) {
+      const maxScroll = properties.length - 1;
+      setStartIndex((prev) => (prev < maxScroll ? prev + 1 : prev));
+    } else {
+      const maxScroll = Math.max(topRow.length, bottomRow.length) - 3;
+      setStartIndex((prev) => (prev < maxScroll ? prev + 1 : prev));
+    }
   };
 
   const scrollBackward = () => {
@@ -266,7 +282,7 @@ const YouMayAlsoLike: React.FC = () => {
   };
 
   return (
-    <div className="w-full px-[100px] py-8">
+    <div className="w-full px-4 md:px-[100px] py-8">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-[21px] sm:text-3xl font-bold text-[#252525]">
           You may also like
@@ -281,13 +297,19 @@ const YouMayAlsoLike: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-10 overflow-hidden">
-        {[topRow, bottomRow].map((row, rowIndex) => (
-          <div key={rowIndex} className="flex gap-[30px] overflow-hidden">
-            {row.slice(startIndex, startIndex + 4).map(renderPropertyCard)}
-          </div>
-        ))}
-      </div>
+      {isMobile ? (
+        <div className="flex flex-col gap-6 items-center">
+          {properties.slice(startIndex, startIndex + 1).map(renderPropertyCard)}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-10 overflow-hidden">
+          {[topRow, bottomRow].map((row, rowIndex) => (
+            <div key={rowIndex} className="flex gap-[30px] overflow-hidden">
+              {row.slice(startIndex, startIndex + 4).map(renderPropertyCard)}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
