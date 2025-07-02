@@ -161,17 +161,33 @@ const AvailabilitySection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Guests */}
-              <div className="md:col-span-2 flex items-center gap-1 justify-center">
-                <User className="w-5 h-5 text-gray-600" />
-                <User className="w-5 h-5 text-gray-600" />
-              </div>
+{/* Guests + Price Wrapper (only for mobile flex adjustment) */}
+<div className="md:hidden flex justify-between col-span-full">
+  {/* Guests */}
+  <div className="flex items-center gap-1">
+    <User className="w-5 h-5 text-gray-600" />
+    <User className="w-5 h-5 text-gray-600" />
+  </div>
 
-              {/* Price */}
-              <div className="md:col-span-2 text-center md:text-left">
-                <p className="text-lg font-bold text-gray-800">${room.price}</p>
-                <p className="text-xs text-gray-500">for 1 week</p>
-              </div>
+  {/* Price */}
+  <div className="text-right">
+    <p className="text-lg font-bold text-gray-800">${room.price}</p>
+    <p className="text-xs text-gray-500">for 1 week</p>
+  </div>
+</div>
+
+{/* Desktop Only - Guests */}
+<div className="hidden md:flex md:col-span-2 items-center gap-1 justify-center">
+  <User className="w-5 h-5 text-gray-600" />
+  <User className="w-5 h-5 text-gray-600" />
+</div>
+
+{/* Desktop Only - Price */}
+<div className="hidden md:block md:col-span-2 text-left">
+  <p className="text-lg font-bold text-gray-800">${room.price}</p>
+  <p className="text-xs text-gray-500">for 1 week</p>
+</div>
+
 
               {/* Breakfast + Left Rooms */}
               <div className="md:col-span-2 text-sm text-gray-700 space-y-1">

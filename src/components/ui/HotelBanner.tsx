@@ -146,7 +146,7 @@ const HotelBanner: React.FC = () => {
                 </button>
               </div>
               <Button 
-                className="bg-[#007DD0] hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium"
+                className="bg-[#007DD0] hover:bg-blue-700 mb-2 mt-2 text-white px-6 py-2 rounded-full text-sm font-medium"
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
                 Message
