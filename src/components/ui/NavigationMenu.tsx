@@ -19,7 +19,7 @@ import {
   X,
   Heart,
   RotateCcw,
-  User,
+
 } from "lucide-react";
 
 export default function NavigationMenu() {

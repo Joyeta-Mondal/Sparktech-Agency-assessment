@@ -143,7 +143,7 @@ const WhatOurGuestsSay: React.FC = () => {
                   — {reviews[currentReview].author}, {reviews[currentReview].location}
                 </p>
               </div>
-              <span className="text-sm text-gray-500 font-medium">
+              <span className="text-sm text-gray-500 font-medium"> {" "}
                 {reviews[currentReview].date}
               </span>
             </div>
@@ -154,9 +154,9 @@ const WhatOurGuestsSay: React.FC = () => {
         <Card className="h-fit opacity-50 hover:opacity-70 transition-opacity duration-300 hidden lg:block border border-gray-200 shadow-sm">
           <CardContent className="p-6 lg:p-8">
             <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4 leading-tight">
-              "{reviews[(currentReview + 1) % reviews.length].title}"
+              {reviews[(currentReview + 1) % reviews.length].title}
             </h3>
-            <p className="text-gray-600 leading-relaxed mb-6 text-sm lg:text-base line-clamp-4">
+            <p className="text-gray-600 leading-relaxed mb-6 text-sm lg:text-base line-clamp-4"> {" "}
               {reviews[(currentReview + 1) % reviews.length].content}
             </p>
 
