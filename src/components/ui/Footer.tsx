@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#00548C] text-white">
       {/* Main Footer Content */}
-      <div className="py-[60px] md:py-[60px] py-8">
+      <div className="py-[60px] md:py-[60px]">
         <div className="mx-auto px-4 md:px-8 lg:px-[160px]">
           {/* Two Main Sections with responsive layout */}
           <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-[70px]">
