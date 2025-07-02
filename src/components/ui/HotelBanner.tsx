@@ -218,9 +218,8 @@ const HotelBanner: React.FC = () => {
                   <p className="text-3xl font-bold text-gray-900">USD $6,112</p>
                 </div>
 
-                <Button className="w-full bg-[#007DD0] hover:bg-blue-700 text-white px-4 py-4 rounded-2xl text-base font-medium gap-1.5">
-                  Reserve 
-                  <ArrowRight className="w-4 h-4" />
+                <Button className="w-full bg-[#007DD0] hover:bg-blue-700 text-white px-4 py-4 rounded-2xl text-base font-medium">
+                  Reserve
                 </Button>
               </CardContent>
             </Card>
