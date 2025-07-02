@@ -70,67 +70,136 @@ const Footer: React.FC = () => {
             <div className="hidden lg:block w-px bg-white opacity-30"></div>
 
             {/* Right Section: Navigation + Contact + App Download */}
+            
             <div className="lg:flex-1">
               <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-[78px] lg:mt-14">
               
-                {/* Navigation Links */}
-                <div>
-                  <nav className="space-y-3 md:space-y-4">
-                    {['Home', 'Hotels', 'Deals', 'About Us', 'Contact Us'].map((item) => (
-                      <Link
-                        key={item}
-                        href={`/${item.toLowerCase().replace(/\s/g, '')}`}
-                        className="block text-white hover:text-blue-200 transition-colors text-base md:text-base"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-
-                {/* Contact Info + App Download */}
-                <div className="space-y-6">
-                  {/* Contact Info */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-[15px] md:text-base">
-                      <Phone className="w-4 h-4 flex-shrink-0" />
-                      <span>+1 (555) 123-4567</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-[15px] md:text-base">
-                      <Mail className="w-4 h-4 flex-shrink-0" />
-                      <span>support@yourapphome.com</span>
-                    </div>
+                {/* Mobile: Side by side layout */}
+                <div className="flex justify-between sm:hidden w-full">
+                  {/* Navigation Links */}
+                  <div>
+                    <nav className="space-y-3">
+                      {['Home', 'Hotels', 'Deals', 'About Us', 'Contact Us'].map((item) => (
+                        <Link
+                          key={item}
+                          href={`/${item.toLowerCase().replace(/\s/g, '')}`}
+                          className="block text-white hover:text-blue-200 transition-colors text-base"
+                        >
+                          {item}
+                        </Link>
+                      ))}
+                    </nav>
                   </div>
 
-                  {/* App Download */}
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Download className="w-4 h-4" />
-                      <span className="text-[15px] md:text-base font-medium">Download Our App</span>
+                  {/* Contact Info + App Download */}
+                  <div className="space-y-6">
+                    {/* Contact Info */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-[15px]">
+                        <Phone className="w-4 h-4 text-sm flex-shrink-0" />
+                        <span>+1 (555) 123-4567</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-[15px]">
+                        <Mail className="w-4 h-4 text-sm flex-shrink-0" />
+                        <span>support@yourapphome.com</span>
+                      </div>
                     </div>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        className="px-3 py-1 h-8 bg-white text-blue-600 hover:bg-blue-50 rounded-md"
-                        asChild
-                      >
-                        <Link href="#" className="flex items-center gap-1">
-                          <Apple className="w-3 h-3" />
-                          <span className="text-[15px] md:text-base">iOS</span>
+
+                    {/* App Download */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Download className="w-4 h-4" />
+                        <span className="text-[15px] font-medium">Download Our App</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          className="px-3 py-1 h-8 bg-white text-blue-600 hover:bg-blue-50 rounded-md"
+                          asChild
+                        >
+                          <Link href="#" className="flex items-center gap-1">
+                            <Apple className="w-3 h-3" />
+                            <span className="text-[15px]">iOS</span>
+                          </Link>
+                        </Button>
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          className="px-3 py-1 h-8 bg-white text-blue-600 hover:bg-blue-50 rounded-md"
+                          asChild
+                        >
+                          <Link href="#" className="flex items-center gap-1">
+                            <Smartphone className="w-3 h-3" />
+                            <span className="text-[15px]">Android</span>
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Desktop: Original layout (hidden on mobile) */}
+                <div className="hidden sm:contents">
+                  {/* Navigation Links */}
+                  <div>
+                    <nav className="space-y-3 md:space-y-4">
+                      {['Home', 'Hotels', 'Deals', 'About Us', 'Contact Us'].map((item) => (
+                        <Link
+                          key={item}
+                          href={`/${item.toLowerCase().replace(/\s/g, '')}`}
+                          className="block text-white hover:text-blue-200 transition-colors text-base md:text-base"
+                        >
+                          {item}
                         </Link>
-                      </Button>
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        className="px-3 py-1 h-8 bg-white text-blue-600 hover:bg-blue-50 rounded-md"
-                        asChild
-                      >
-                        <Link href="#" className="flex items-center gap-1">
-                          <Smartphone className="w-3 h-3" />
-                          <span className="text-[15px] md:text-base">Android</span>
-                        </Link>
-                      </Button>
+                      ))}
+                    </nav>
+                  </div>
+
+                  {/* Contact Info + App Download */}
+                  <div className="space-y-6">
+                    {/* Contact Info */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-[15px] md:text-base">
+                        <Phone className="w-4 h-4 flex-shrink-0" />
+                        <span>+1 (555) 123-4567</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-[15px] md:text-base">
+                        <Mail className="w-4 h-4 flex-shrink-0" />
+                        <span>support@yourapphome.com</span>
+                      </div>
+                    </div>
+
+                    {/* App Download */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Download className="w-4 h-4" />
+                        <span className="text-[15px] md:text-base font-medium">Download Our App</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          className="px-3 py-1 h-8 bg-white text-blue-600 hover:bg-blue-50 rounded-md"
+                          asChild
+                        >
+                          <Link href="#" className="flex items-center gap-1">
+                            <Apple className="w-3 h-3" />
+                            <span className="text-[15px] md:text-base">iOS</span>
+                          </Link>
+                        </Button>
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          className="px-3 py-1 h-8 bg-white text-blue-600 hover:bg-blue-50 rounded-md"
+                          asChild
+                        >
+                          <Link href="#" className="flex items-center gap-1">
+                            <Smartphone className="w-3 h-3" />
+                            <span className="text-[15px] md:text-base">Android</span>
+                          </Link>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
