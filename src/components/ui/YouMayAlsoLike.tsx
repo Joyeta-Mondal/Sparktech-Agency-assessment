@@ -199,8 +199,8 @@ const YouMayAlsoLike: React.FC = () => {
       className="flex-shrink-0 snap-start "
     >
       
-    <Card className="w-full sm:w-[326px] h-[455px] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-  <CardContent className="p-0 h-full flex flex-col">
+    <Card className="w-full sm:w-[326px] p-0 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+  <CardContent className="p-0 pb-1 flex flex-col">
     {/* Image */}
     <div className="relative w-full h-[243px] overflow-hidden rounded-t-lg">
       <Image
