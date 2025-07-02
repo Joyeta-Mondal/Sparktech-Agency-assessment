@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               <p className="text-white text-base md:text-lg leading-relaxed mb-6 max-w-xl">
                 DAYF makes booking your next stay easy, affordable, and stress-free. 
                 With thousands of hotels worldwide, exclusive deals, and secure payment 
-                options, we're here to help you find the perfect place to stay every time.
+                options, we are here to help you find the perfect place to stay every time.
               </p>
 
               {/* Social Icons */}
