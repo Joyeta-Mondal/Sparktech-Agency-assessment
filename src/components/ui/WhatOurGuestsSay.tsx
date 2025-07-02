@@ -126,7 +126,7 @@ const WhatOurGuestsSay: React.FC = () => {
         <Card className="h-fit border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
           <CardContent className="p-6 lg:p-8">
             <h3 className="text-[20px] lg:text-xl font-semibold text-[#252525] mb-4 leading-tight">
-              "{reviews[currentReview].title}"
+              {reviews[currentReview].title}
             </h3>
             <p className="text-[#626262] leading-relaxed mb-6 text-[16px] lg:text-base">
               {reviews[currentReview].content}

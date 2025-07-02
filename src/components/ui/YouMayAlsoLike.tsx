@@ -34,7 +34,6 @@ interface Property {
 
 const YouMayAlsoLike: React.FC = () => {
   const [startIndex, setStartIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(3);
   const [isMobile, setIsMobile] = useState(false);
 
   const properties: Property[] = [

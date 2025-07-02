@@ -7,7 +7,7 @@ import NavigationMenu from "@/components/ui/NavigationMenu"
 import Policies from "@/components/ui/Policies"
 import WhatOurGuestsSay from "@/components/ui/WhatOurGuestsSay"
 import YouMayAlsoLike from "@/components/ui/YouMayAlsoLike"
-import Image from "next/image"
+
 
 export default function Home() {
 
