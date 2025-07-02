@@ -1,5 +1,7 @@
 # 🚀 SparkTech Assessment
 
+![Screenshot](./pagess.jpg)
+
 [Live Demo](https://sparktech-assessment.vercel.app/)
 
 A modern Next.js TypeScript application powered by ShadCN UI and Tailwind CSS, deployed on Vercel.
@@ -31,7 +33,7 @@ This project is the assessment deliverable for SparkTech. It showcases a sleek, 
 
 ## Tech Stack
 
-- **Frontend:** Next.js (app router with React 18+)
+- **Frontend:** Next.js (App Router)
 - **Language:** TypeScript  
 - **UI Library:** ShadCN UI  
 - **Styling:** Tailwind CSS  
@@ -41,11 +43,12 @@ This project is the assessment deliverable for SparkTech. It showcases a sleek, 
 
 ## Features
 
-- 🧩 Modular components via ShadCN UI  
-- 🎨 Utility-first styling with Tailwind  
-- ⚡ Fast refresh and optimized builds  
-- 🚀 Instant deployment through Vercel  
-- 🔒 Type-safe codebase with TypeScript  
+- 🧩 Modular ShadCN UI components  
+- 🎨 Tailwind-powered utility-first styling  
+- ⚡ Blazing fast refresh and SSR  
+- 📱 Fully responsive  
+- 🌍 Internationalization-ready  
+- 🚀 Deployed seamlessly with Vercel  
 
 ---
 
@@ -53,14 +56,12 @@ This project is the assessment deliverable for SparkTech. It showcases a sleek, 
 
 ### Prerequisites
 
-- Node.js v16+ (or latest LTS)  
+- Node.js v16+  
 - npm or Yarn  
 
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/sparktech-assessment.git
-cd sparktech-assessment
+git clone https://github.com/Joyeta-Mondal/Sparktech-Agency-assessment.git
+cd Sparktech-Agency-assessment
 npm install
-# or
-yarn
