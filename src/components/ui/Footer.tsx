@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#00548C] text-white">
       {/* Main Footer Content */}
-      <div className="py-[60px]">
+      <div className="py-[60px] ">
         <div className="mx-auto" style={{ paddingLeft: '160px', paddingRight: '160px' }}>
           {/* Two Main Sections with 80px gap */}
           <div className="flex justify-between" style={{ gap: '70px' }}>

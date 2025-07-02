@@ -174,14 +174,14 @@ const YouMayAlsoLike: React.FC = () => {
     };
 
     updateItemsPerView();
-    window.addEventListener('resize', updateItemsPerView);
-    return () => window.removeEventListener('resize', updateItemsPerView);
+    window.addEventListener("resize", updateItemsPerView);
+    return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
 
   const topRowProperties = properties.filter((_, i) => i % 2 === 0);
   const bottomRowProperties = properties.filter((_, i) => i % 2 === 1);
 
-  const maxSlides = Math.max(0, Math.ceil(topRowProperties.length) - itemsPerView);
+  const maxSlides = Math.max(0, Math.ceil(topRowProperties.length - itemsPerView));
 
   const nextSlide = () => setCurrentSlide((prev) => Math.min(prev + 1, maxSlides));
   const prevSlide = () => setCurrentSlide((prev) => Math.max(prev - 1, 0));
@@ -196,105 +196,122 @@ const YouMayAlsoLike: React.FC = () => {
   const renderPropertyCard = (property: Property) => (
     <div
       key={property.id}
-      className={`flex-shrink-0 snap-start ${
-        itemsPerView === 1 ? 'w-[calc(100%-35px)]' :
-        itemsPerView === 2 ? 'w-[calc(50%-17.5px)]' :
-        'w-[326px]'
-      }`}
+      className="flex-shrink-0 snap-start "
     >
-      <Card className="h-[480px] sm:h-[455px] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-        <CardContent className="p-3 sm:p-4 h-full flex flex-col">
-          <div className="relative h-[180px] overflow-hidden rounded-t-lg">
-            <Image src="/assets/card.png" alt={property.title} fill className="object-cover transition-transform duration-300 hover:scale-105" />
-            <div className="absolute top-3 left-3">
-              <Badge className="bg-black/70 text-white border-0 backdrop-blur-sm">
-                {renderStars(property.rating)}
-              </Badge>
-            </div>
-            {property.badge && (
-              <div className="absolute top-3 right-3">
-                <Badge className={`text-white border-0 backdrop-blur-sm ${
-                  property.badge === 'Popular' ? 'bg-blue-600' :
-                  property.badge === 'Premium' ? 'bg-purple-600' :
-                  property.badge === 'Featured' ? 'bg-green-600' :
-                  'bg-orange-600'
-                }`}>
-                  {property.badge}
-                </Badge>
-              </div>
-            )}
-          </div>
-
-          <div className="p-2 sm:p-4 flex-1 flex flex-col justify-between">
-            <div className="space-y-3">
-              <h3 className="font-bold text-gray-900 text-base sm:text-lg leading-tight line-clamp-2">
-                {property.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
-                {property.description}
-              </p>
-              <div className="flex items-baseline gap-1">
-                <span className="text-xl sm:text-2xl font-bold text-gray-900">
-                  ${property.price}
-                </span>
-                <span className="text-sm text-gray-600">{property.period}</span>
-              </div>
-              <div className="flex items-center gap-4 text-gray-600 flex-wrap">
-                <div className="flex items-center gap-1">
-                  <Bed className="h-4 w-4" />
-                  <span className="text-sm">{property.bedrooms} Bed{property.bedrooms > 1 ? 's' : ''}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Bath className="h-4 w-4" />
-                  <span className="text-sm">{property.bathrooms} Bath</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Square className="h-4 w-4" />
-                  <span className="text-sm">{property.area} {property.areaUnit}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-2 pt-4">
-              <Button className="flex-1 bg-[#007DD0] hover:bg-blue-700 text-white transition-colors duration-200">Book Now</Button>
-              <Button variant="outline" size="icon" className="hover:bg-gray-50 transition-colors duration-200">
-                <Info className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-
-  const renderRow = (rowProps: Property[]) => (
-    <div className="overflow-x-auto lg:overflow-hidden scrollbar-hide">
-      <div
-        className="flex gap-4 transition-transform duration-500 ease-out snap-x snap-mandatory"
-        style={{ transform: `translateX(-${currentSlide * (itemsPerView === 3 ? 350 : 100)}${itemsPerView === 3 ? 'px' : '%'})` }}
-      >
-        {rowProps.map(renderPropertyCard)}
+      
+    <Card className="w-full sm:w-[326px] h-[455px] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+  <CardContent className="p-0 h-full flex flex-col">
+    {/* Image */}
+    <div className="relative w-full h-[243px] overflow-hidden rounded-t-lg">
+      <Image
+        src="/assets/card.png"
+        alt={property.title}
+        fill
+        className="object-cover transition-transform duration-300 hover:scale-105"
+      />
+      <div className="absolute top-3 left-3">
+        <Badge className="bg-black/70 text-white border-0 backdrop-blur-sm">
+          {renderStars(property.rating)}
+        </Badge>
       </div>
+      {property.badge && (
+        <div className="absolute top-3 right-3">
+          <Badge
+            className={`text-white border-0 backdrop-blur-sm ${
+              property.badge === "Popular"
+                ? "bg-blue-600"
+                : property.badge === "Premium"
+                ? "bg-purple-600"
+                : property.badge === "Featured"
+                ? "bg-green-600"
+                : "bg-orange-600"
+            }`}
+          >
+            {property.badge}
+          </Badge>
+        </div>
+      )}
+    </div>
+
+    {/* Content */}
+    <div className="w-full h-[141.5px] px-4 py-3
+     flex-1 flex flex-col justify-between">
+      <div className="space-y-2">
+        <h3 className="font-bold text-gray-900 text-sm sm:text-base leading-tight line-clamp-2">
+          {property.title}
+        </h3>
+        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">
+          {property.description}
+        </p>
+        <div className="flex items-baseline gap-1">
+          <span className="text-lg sm:text-xl font-bold text-gray-900">
+            ${property.price}
+          </span>
+          <span className="text-sm text-gray-600">{property.period}</span>
+        </div>
+        <div className="flex items-center gap-4 text-gray-600 flex-wrap">
+          <div className="flex items-center gap-1">
+            <Bed className="h-4 w-4" />
+            <span className="text-sm">
+              {property.bedrooms} Bed{property.bedrooms > 1 ? "s" : ""}
+            </span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Bath className="h-4 w-4" />
+            <span className="text-sm">{property.bathrooms} Bath</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Square className="h-4 w-4" />
+            <span className="text-sm">
+              {property.area} {property.areaUnit}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div className="w-full h-[46px] flex items-center justify-between px-4">
+      <Button
+        className="w-[70%] sm:w-[245px] h-full bg-[#007DD0] hover:bg-blue-700 text-white transition-colors duration-200"
+      >
+        Book Now
+      </Button>
+      <Button
+        variant="outline"
+        size="icon"
+        className="h-full w-[46px] hover:bg-gray-50 transition-colors duration-200"
+      >
+        <Info className="h-4 w-4" />
+      </Button>
+    </div>
+  </CardContent>
+</Card>
+
+
     </div>
   );
 
   return (
-    <div className="w-full lg:px-[100px] mx-auto px-4 sm:px-6 py-8">
+    <div className="w-full px-4 sm:px-6 lg:px-[100px] py-8">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">You may also like</h2>
-        <div className="flex gap-2">
-          <Button variant="outline" size="icon" onClick={prevSlide} disabled={currentSlide === 0} className="rounded-full w-10 h-10 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200">
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <Button variant="outline" size="icon" onClick={nextSlide} disabled={currentSlide >= maxSlides} className="rounded-full w-10 h-10 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200">
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
+        <h2 className="text-[21px] sm:text-3xl font-bold text-[#252525]">
+          You may also like
+        </h2>
+       
       </div>
 
-      <div className="relative max-w-full">
-        <div className="mb-8 relative">{renderRow(topRowProperties)}</div>
-        <div className="relative">{renderRow(bottomRowProperties)}</div>
+      <div className="flex flex-col gap-10 overflow-hidden">
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-[30px] snap-x snap-mandatory px-1 sm:px-0">
+            {topRowProperties.map(renderPropertyCard)}
+          </div>
+        </div>
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-[30px] snap-x snap-mandatory px-1 sm:px-0">
+            {bottomRowProperties.map(renderPropertyCard)}
+          </div>
+        </div>
       </div>
 
       <div className="flex justify-center gap-2 mt-6">
@@ -302,7 +319,11 @@ const YouMayAlsoLike: React.FC = () => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-200 ${currentSlide === index ? 'bg-[#007DD0] w-6' : 'bg-gray-300 hover:bg-gray-400'}`}
+            className={`w-2 h-2 rounded-full transition-all duration-200 ${
+              currentSlide === index
+                ? "bg-[#007DD0] w-6"
+                : "bg-gray-300 hover:bg-gray-400"
+            }`}
           />
         ))}
       </div>
