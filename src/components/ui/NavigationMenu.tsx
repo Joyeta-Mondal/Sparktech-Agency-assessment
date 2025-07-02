@@ -1,9 +1,8 @@
-
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -25,6 +24,7 @@ export default function NavigationMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("€ EUR");
   const [selectedLanguage, setSelectedLanguage] = useState("Spanish");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const languageFlagMap: Record<string, string> = {
     Spanish: "/assets/spain-flag.png",
@@ -32,8 +32,23 @@ export default function NavigationMenu() {
     French: "/assets/france-flag.jpg",
   };
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="w-full bg-[#E9F6FF] border-b border-gray-200">
+    <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-[#E9F6FF]/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm' 
+        : 'bg-[#E9F6FF] border-b border-gray-200'
+    }`}>
       <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-[100px]">
         <div className="flex justify-between items-center h-16">
           {/* Left: Logo + Desktop Nav */}
@@ -153,7 +168,11 @@ export default function NavigationMenu() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden absolute top-16 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50 transform transition-transform duration-300 ${
+          className={`lg:hidden absolute top-16 left-0 w-full ${
+            isScrolled 
+              ? 'bg-white/90 backdrop-blur-md border-t border-gray-200/50' 
+              : 'bg-white border-t border-gray-200'
+          } shadow-md z-50 transform transition-all duration-300 ${
             menuOpen ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0 pointer-events-none"
           }`}
         >
